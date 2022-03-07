@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
+import com.stripe.model.Invoice;
 import com.stripe.model.Subscription;
 
 import ibf2021.paf.finalproject.FinalProjectApplication;
@@ -22,6 +23,12 @@ public class StripeInvoice {
         Subscription subscription = Subscription.retrieve(subId);
         id = subscription.getLatestInvoice();
         return id;
+    }
+
+    public String getStatus(String id) throws StripeException {
+        Stripe.apiKey = stripeKey;
+        String status = Invoice.retrieve(id).getStatus();
+        return status;
     }
 
     public String getId() { return id; }

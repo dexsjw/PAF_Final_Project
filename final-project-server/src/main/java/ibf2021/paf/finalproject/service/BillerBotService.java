@@ -41,10 +41,19 @@ public class BillerBotService extends TelegramLongPollingBot {
     private static final Logger logger = Logger.getLogger(FinalProjectApplication.class.getName());
     private String stripeKey = System.getenv(ENV_STRIPE_KEY);
 
-    Long currentUserId;
-    Long currentChatId;
-    TeleUser user = new TeleUser();
+    private Long currentUserId;
+    private Long currentChatId;
+    private TeleUser user = new TeleUser();
     
+    public Long getCurrentUserId() { return currentUserId; }
+    public void setCurrentUserId(Long currentUserId) { this.currentUserId = currentUserId; }
+
+    public Long getCurrentChatId() { return currentChatId; }
+    public void setCurrentChatId(Long currentChatId) { this.currentChatId = currentChatId; }
+
+    public TeleUser getUser() { return user; }
+    public void setUser(TeleUser user) { this.user = user; }
+
     @Override
     public String getBotUsername() {
         return "BillTheBillerBot";
@@ -158,7 +167,6 @@ public class BillerBotService extends TelegramLongPollingBot {
     }
 
     public void sendInvoice(int amount, String title, String description) {
-        String currency = "sgd";
         List<LabeledPrice> prices = new ArrayList<>();
         prices.add(
             LabeledPrice.builder()
@@ -172,7 +180,7 @@ public class BillerBotService extends TelegramLongPollingBot {
         sendInvoice.setDescription(description);
         sendInvoice.setPayload("4242");
         sendInvoice.setProviderToken(ENV_TELEBOT_PROVIDER_TOKEN);
-        sendInvoice.setCurrency(currency);
+        sendInvoice.setCurrency("sgd");
         sendInvoice.setPrices(prices);
         try {
             execute(sendInvoice);

@@ -21,7 +21,7 @@ public class TeleUser {
     private String firstName;
     private String userName;
 
-    public static TeleUser create(long userId, String firstName, String userName) {
+    public static TeleUser create(Long userId, String firstName, String userName) {
         final TeleUser user = new TeleUser();
         user.setUserId(userId);
         user.setFirstName(firstName);
@@ -61,8 +61,8 @@ public class TeleUser {
         }
     }
 
-    public long getUserId() { return userId; }
-    public void setUserId(long userId) { this.userId = userId; }
+    public Long getUserId() { return userId; }
+    public void setUserId(Long userId) { this.userId = userId; }
 
     public String getFirstName() { return firstName; }
     public void setFirstName(String firstName) { this.firstName = firstName; }

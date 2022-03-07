@@ -46,6 +46,12 @@ public class StripePaymentIntent {
         return updatedPayInt;
     }
 
+    public String getStatus(String id) throws StripeException {
+        Stripe.apiKey = stripeKey;
+        String status = PaymentIntent.retrieve(id).getStatus();
+        return status;
+    }
+
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 

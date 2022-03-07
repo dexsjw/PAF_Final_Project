@@ -17,7 +17,7 @@ import ibf2021.paf.finalproject.FinalProjectApplication;
 public class StripeSubscription {
 
     private String id;
-    private String customerId;      // tele user.id
+    private String customerId;
     private String priceId;
     private String paymentBehavior = "default_incomplete";
     private String currentPeriodStart;
@@ -41,6 +41,12 @@ public class StripeSubscription {
         Subscription subscription = Subscription.create(params);         
         id = subscription.getId();    
         return subscription;
+    }
+
+    public String getStatus(String id) throws StripeException  {
+        Stripe.apiKey = stripeKey;
+        String status = Subscription.retrieve(id).getStatus();
+        return status;
     }
 
     public String getId() { return id; }

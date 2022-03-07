@@ -32,6 +32,12 @@ public class StripeCustomer {
         return customer;
     }
 
+    public Customer retrieve(String id) throws StripeException {
+        Stripe.apiKey = stripeKey;
+        Customer customer = Customer.retrieve(id);
+        return customer;
+    }
+
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
