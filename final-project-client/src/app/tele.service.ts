@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Product } from './product-model';
+import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
+import { Product, Status } from './product-model';
 
 @Injectable()
 export class TeleService {
@@ -14,9 +14,9 @@ export class TeleService {
     );
   }
 
-  getProduct() {
+  getStatus(): Promise<Status[]> {
     return lastValueFrom(
-      this.http.get("/api/tele/values")
+      this.http.get<Status[]>("/api/tele/values")
     );
   }
   

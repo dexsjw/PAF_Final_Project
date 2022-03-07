@@ -129,17 +129,25 @@ public class BillerBotService extends TelegramLongPollingBot {
                 e.printStackTrace();
             }
         } else if ((update.hasMessage() && update.getMessage().getText().equals("/list"))) {
-/*             Stripe.apiKey = stripeKey;
-            Map<String, Object> params = new HashMap<>();
-            params.put("payment_method", "pm_1KaaVaFlorMUS1SNmNFAubEt");
+            List<InlineKeyboardButton> ikbList = new ArrayList<>();
+            ikbList.add(
+                InlineKeyboardButton.builder()
+                    .text("Click here to visit your list of subscriptions")
+                    .url("http://youtube.com")                    // needs be changed
+                    .build()
+            );
+            InlineKeyboardMarkup ikbm = InlineKeyboardMarkup.builder()
+                .keyboardRow(ikbList)
+                .build();
+            SendMessage message = new SendMessage();
+            message.setChatId(update.getMessage().getChatId().toString());
+            message.setText("Press the button below to visit your list of subscriptions!");
+            message.setReplyMarkup(ikbm);
             try {
-                PaymentIntent payInt = PaymentIntent.retrieve("pi_3Kaa8lFlorMUS1SN0zBmOJZs");
-                PaymentIntent updatedPayInt = payInt.confirm(params);
-                logger.info(">>>>>>>>>>>>>>>>>>>>\nPaymentIntent Id: %s\n ".formatted(updatedPayInt.getId()));
-                logger.info(">>>>>>>>>>>>>>>>>>>>\n %s\n ".formatted(updatedPayInt.toString()));
-            } catch (StripeException e) {
+                execute(message);
+            } catch (TelegramApiException e) {
                 e.printStackTrace();
-            } */
+            }
         }
     }
 

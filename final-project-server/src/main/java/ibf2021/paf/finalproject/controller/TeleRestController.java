@@ -8,16 +8,19 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ibf2021.paf.finalproject.FinalProjectApplication;
+import ibf2021.paf.finalproject.model.StripeStatus;
 import ibf2021.paf.finalproject.model.TeleUser;
 import ibf2021.paf.finalproject.service.BillerBotService;
 import ibf2021.paf.finalproject.service.StripeSubcriptionService;
 import jakarta.json.Json;
+import jakarta.json.JsonArrayBuilder;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
 
@@ -76,6 +79,17 @@ public class TeleRestController {
                 .build();
         }
         return ResponseEntity.ok(resp.toString());
+    }
+
+    @GetMapping(path="/tele/values")
+    public ResponseEntity<String> getStatuses() {
+        int teleUserId = billBotSvc.getCurrentUserId().intValue();
+        JsonArrayBuilder arrBuilder = Json.createArrayBuilder();
+        List<StripeStatus> statuses = stripeSubSvc.getStatuses(teleUserId);
+        statuses.stream()
+            .map(status -> status.toJsonObj())
+            .forEach(arrBuilder::add);
+        return ResponseEntity.ok(arrBuilder.build().toString());
     }
 
     

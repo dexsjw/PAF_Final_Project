@@ -2,6 +2,7 @@ package ibf2021.paf.finalproject.service;
 
 import static ibf2021.paf.finalproject.Constants.ENV_STRIPE_KEY;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import com.stripe.Stripe;
@@ -22,6 +23,7 @@ import ibf2021.paf.finalproject.model.StripePaymentIntent;
 import ibf2021.paf.finalproject.model.StripePaymentMethod;
 import ibf2021.paf.finalproject.model.StripePrice;
 import ibf2021.paf.finalproject.model.StripeProduct;
+import ibf2021.paf.finalproject.model.StripeStatus;
 import ibf2021.paf.finalproject.model.StripeSubscription;
 import ibf2021.paf.finalproject.repository.StripeRepo;
 import ibf2021.paf.finalproject.repository.TeleRepo;
@@ -115,6 +117,10 @@ public class StripeSubcriptionService {
         } catch (StripeException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<StripeStatus> getStatuses(int teleUserId) {
+        return stripeRepo.getStatuses(teleUserId);
     }
 
     public String getProdId() { return prodId; }

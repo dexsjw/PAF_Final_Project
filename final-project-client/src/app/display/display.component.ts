@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Status } from '../product-model';
+import { TeleService } from '../tele.service';
 
 @Component({
   selector: 'app-display',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayComponent implements OnInit {
 
-  constructor() { }
+  statuses: Status[] = [];
+
+  constructor(private teleSvc: TeleService) { }
 
   ngOnInit(): void {
+    this.teleSvc.getStatus()
+      .then(result => this.statuses = result)
+      .catch(error => alert(`Error: ${JSON.stringify(error)}`))
   }
 
 }

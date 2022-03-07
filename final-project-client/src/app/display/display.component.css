@@ -1,0 +1,9 @@
+table, tr {
+    border: 1px solid lightskyblue;
+    background-color: deepskyblue;
+}
+
+td {
+    margin: 5px;
+    padding: 2px;
+}

@@ -39,8 +39,8 @@ export class CreateComponent implements OnInit {
     this.teleSvc.postProduct(product)
       .then(v => console.info(v))
       .catch(error => alert(`Error: ${JSON.stringify(error)}`));
-    // this.prodForm.reset();
-    // this.router.navigate(['/display'])
+    this.prodForm.reset();
+    this.router.navigate(['/display'])
   }
 
 }

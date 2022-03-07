@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     CreateComponent,
-    DisplayComponent
+    DisplayComponent,
   ],
   imports: [
     BrowserModule,
