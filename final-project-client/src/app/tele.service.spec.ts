@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TeleStripeService } from './tele-stripe.service';
+import { TeleService } from './tele.service';
 
-describe('TeleStripeService', () => {
-  let service: TeleStripeService;
+describe('TeleService', () => {
+  let service: TeleService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TeleStripeService);
+    service = TestBed.inject(TeleService);
   });
 
   it('should be created', () => {

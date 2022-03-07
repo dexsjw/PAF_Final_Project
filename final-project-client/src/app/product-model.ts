@@ -5,9 +5,9 @@ export interface CreditCard {
     cardCvc: string
 }
 
-export interface Subscription extends CreditCard {
-    subName: string,
-    subDesc: string,
+export interface Product extends CreditCard {
+    prodName: string,
+    prodDesc: string,
     unitAmount: number,
     interval: string
 }

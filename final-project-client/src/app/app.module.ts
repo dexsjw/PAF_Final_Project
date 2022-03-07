@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CreateSubComponent } from './create-sub/create-sub.component';
 import { DisplaySubComponent } from './display-sub/display-sub.component';
-import { TeleStripeService } from './tele-stripe.service';
+import { TeleService } from './tele.service';
 
 const appRoutes: Routes = [
   { path: '', component: CreateSubComponent},
@@ -28,7 +28,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {useHash: true}),
     HttpClientModule
   ],
-  providers: [TeleStripeService],
+  providers: [TeleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

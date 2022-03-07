@@ -107,7 +107,7 @@ public class BillerBotService extends TelegramLongPollingBot {
             ikbList.add(
                 InlineKeyboardButton.builder()
                     .text("Click here to create a subscription")
-                    .url("https://www.youtube.com/")                    // needs be changed
+                    .url("http://youtube.com")                    // needs be changed
                     .build()
             );
             InlineKeyboardMarkup ikbm = InlineKeyboardMarkup.builder()
