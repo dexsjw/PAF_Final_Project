@@ -1,21 +1,12 @@
 package ibf2021.paf.finalproject.service;
 
-import static ibf2021.paf.finalproject.Constants.ENV_STRIPE_KEY;
-import static ibf2021.paf.finalproject.Constants.ENV_TELEBOT_PROVIDER_TOKEN;
-import static ibf2021.paf.finalproject.Constants.ENV_TELEBOT_TOKEN;
-import static ibf2021.paf.finalproject.Constants.TELE_METHOD_GET_MY_COMMANDS;
+import static ibf2021.paf.finalproject.Constants.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Logger;
 
-import com.stripe.Stripe;
-import com.stripe.exception.StripeException;
-import com.stripe.model.PaymentIntent;
-import com.stripe.model.Subscription;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -30,6 +21,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import ibf2021.paf.finalproject.FinalProjectApplication;
 import ibf2021.paf.finalproject.model.TeleUser;
+import ibf2021.paf.finalproject.repository.TeleRepo;
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
 import jakarta.json.JsonObject;
@@ -37,6 +29,9 @@ import jakarta.json.JsonObject;
 @Component
 @Service
 public class BillerBotService extends TelegramLongPollingBot {
+
+    @Autowired
+    private TeleRepo teleRepo;
 
     private static final Logger logger = Logger.getLogger(FinalProjectApplication.class.getName());
     private String stripeKey = System.getenv(ENV_STRIPE_KEY);
@@ -187,6 +182,10 @@ public class BillerBotService extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+    }
+
+    public void insertTeleUser(TeleUser user) {
+        teleRepo.insertTeleUser(user);
     }
     
 }

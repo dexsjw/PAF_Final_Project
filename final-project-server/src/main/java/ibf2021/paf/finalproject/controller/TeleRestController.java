@@ -18,7 +18,6 @@ import ibf2021.paf.finalproject.model.TeleUser;
 import ibf2021.paf.finalproject.service.BillerBotService;
 import ibf2021.paf.finalproject.service.StripeSubcriptionService;
 import jakarta.json.Json;
-import jakarta.json.JsonArray;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
 
@@ -62,10 +61,14 @@ public class TeleRestController {
                 
             billBotSvc.sendInvoice(unitAmount, prodName, prodDesc);
             
+            stripeSubSvc.insertIds(teleUserId);
+            stripeSubSvc.insertStatuses(teleUserId);
+            billBotSvc.insertTeleUser(user);
+            
             resp = Json.createObjectBuilder()
                 .add("Result", "You have successfully subscribed to Bill's service!")
                 .build();
-                
+
         } catch (Exception e) {
             e.printStackTrace();
             resp = Json.createObjectBuilder()
