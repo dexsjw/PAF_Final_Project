@@ -1,6 +1,6 @@
 package ibf2021.paf.finalproject.service;
 
-import static ibf2021.paf.finalproject.Constants.ENV_STRIPE_KEY;
+import static ibf2021.paf.finalproject.Constants.*;
 
 import java.util.logging.Logger;
 

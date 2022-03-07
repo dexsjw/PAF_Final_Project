@@ -9,7 +9,6 @@ import java.util.logging.Logger;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Price;
-import com.stripe.model.Product;
 
 import ibf2021.paf.finalproject.FinalProjectApplication;
 
@@ -56,4 +55,5 @@ public class StripePrice {
 
     public String getInterval() { return interval; }
     public void setInterval(String interval) { this.interval = interval; }
+
 }

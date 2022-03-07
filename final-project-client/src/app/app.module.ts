@@ -5,21 +5,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { CreateSubComponent } from './create-sub/create-sub.component';
-import { DisplaySubComponent } from './display-sub/display-sub.component';
 import { TeleService } from './tele.service';
+import { CreateComponent } from './create/create.component';
+import { DisplayComponent } from './display/display.component';
 
 const appRoutes: Routes = [
-  { path: '', component: CreateSubComponent},
-  { path: 'display', component: DisplaySubComponent},
+  { path: '', component: CreateComponent},
+  { path: 'display', component: DisplayComponent},
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateSubComponent,
-    DisplaySubComponent
+    CreateComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,

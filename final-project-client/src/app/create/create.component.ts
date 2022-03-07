@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators  } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Product } from '../product-model';
 import { TeleService } from '../tele.service';
 
 @Component({
-  selector: 'app-create-sub',
-  templateUrl: './create-sub.component.html',
-  styleUrls: ['./create-sub.component.css']
+  selector: 'app-create',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.css']
 })
-export class CreateSubComponent implements OnInit {
+export class CreateComponent implements OnInit {
 
   prodForm!: FormGroup;
 
