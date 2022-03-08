@@ -66,7 +66,9 @@ public class TeleRestController {
             
             stripeSubSvc.insertIds(teleUserId);
             stripeSubSvc.insertStatuses(teleUserId);
-            billBotSvc.insertTeleUser(user);
+            if (!billBotSvc.checkUser(teleUserId)) {
+                billBotSvc.insertTeleUser(user);   
+            }
             
             resp = Json.createObjectBuilder()
                 .add("Result", "You have successfully subscribed to Bill's service!")
@@ -83,7 +85,7 @@ public class TeleRestController {
 
     @GetMapping(path="/tele/values")
     public ResponseEntity<String> getStatuses() {
-        int teleUserId = billBotSvc.getCurrentUserId().intValue();
+        int teleUserId = billBotSvc.getUser().getUserId().intValue();
         JsonArrayBuilder arrBuilder = Json.createArrayBuilder();
         List<StripeStatus> statuses = stripeSubSvc.getStatuses(teleUserId);
         statuses.stream()

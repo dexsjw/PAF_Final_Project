@@ -1,72 +1,74 @@
-<form [formGroup]="prodForm" (ngSubmit)="submit()">
-    <section>
-        <h2>Product Details</h2>
-        <div>
-            <label for="prodName">Product Name:</label>
-        </div>
-        <div>
-            <input type="text" id="prodName" formControlName="prodName">
-        </div>
-        <div>
-            <label for="prodDesc">Product Description:</label>
-        </div>
-        <div>
-            <input type="text" id="prodDesc" formControlName="prodDesc">
-        </div>        
-        <div>
-            <label for="unitAmount">Cost (in cents)</label>
-        </div>
-        <div>
-            <input type="number" id="unitAmount" formControlName="unitAmount" placeholder="e.g. 500 = $5">
-        </div>
-        <div>
-            <span>
-                <label for="day">Day</label>
-                <input type="radio" id="day" value="day" formControlName="interval">
-            </span>
-            <span>
-                <label for="week">Week</label>
-                <input type="radio" id="week" value="week" formControlName="interval">
-            </span>
-            <span>
-                <label for="month">Month</label>
-                <input type="radio" id="month" value="month" formControlName="interval">
-            </span>
-            <span>
-                <label for="year">Year</label>
-                <input type="radio" id="year" value="year" formControlName="interval">
-            </span>
-        </div>
-    </section>
-    <section>
-        <h2>Card Details</h2>
-        <div>
-            <label for="cardNum">Card Number:</label>
-        </div>
-        <div>
-            <input type="text" id="cardNum" formControlName="cardNum">
-        </div>
-        <div>
-            <label for="cardExpMth">Expiry Month:</label>
-        </div>
-        <div>
-            <input type="number" id="cardExpMth" formControlName="cardExpMth">
-        </div>
-        <div>
-            <label for="cardExpYear">Expiry Year:</label>
-        </div>
-        <div>
-            <input type="number" id="cardExpYear" formControlName="cardExpYear">
-        </div>
-        <div>
-            <label for="cardCvc">CVC:</label>
-        </div>
-        <div>
-            <input type="text" id="cardCvc" formControlName="cardCvc">
-        </div>
-    </section>
-    <section>
-        <a href="https://t.me/BillTheBillerBot"><button type="button">Back</button></a>
-        <button type="submit" [disabled]="prodForm.invalid">Submit</button>
-    </section>
-</form>
+<div class="container">
+    <form [formGroup]="prodForm" (ngSubmit)="submit()">
+        <section>
+            <h2>Product Details</h2>
+            <div>
+                <label for="prodName">Product Name:</label>
+            </div>
+            <div>
+                <input type="text" id="prodName" formControlName="prodName">
+            </div>
+            <div>
+                <label for="prodDesc">Product Description:</label>
+            </div>
+            <div>
+                <input type="text" id="prodDesc" formControlName="prodDesc">
+            </div>        
+            <div>
+                <label for="unitAmount">Cost (in cents)</label>
+            </div>
+            <div>
+                <input type="number" id="unitAmount" formControlName="unitAmount" placeholder="e.g. 500 = $5">
+            </div>
+            <div>
+                <span>
+                    <label for="day">Day</label>
+                    <input type="radio" id="day" value="day" formControlName="interval">
+                </span>
+                <span>
+                    <label for="week">Week</label>
+                    <input type="radio" id="week" value="week" formControlName="interval">
+                </span>
+                <span>
+                    <label for="month">Month</label>
+                    <input type="radio" id="month" value="month" formControlName="interval">
+                </span>
+                <span>
+                    <label for="year">Year</label>
+                    <input type="radio" id="year" value="year" formControlName="interval">
+                </span>
+            </div>
+        </section>
+        <section>
+            <h2>Card Details</h2>
+            <div>
+                <label for="cardNum">Card Number:</label>
+            </div>
+            <div>
+                <input type="text" id="cardNum" formControlName="cardNum">
+            </div>
+            <div>
+                <label for="cardExpMth">Expiry Month:</label>
+            </div>
+            <div>
+                <input type="number" id="cardExpMth" formControlName="cardExpMth">
+            </div>
+            <div>
+                <label for="cardExpYear">Expiry Year:</label>
+            </div>
+            <div>
+                <input type="number" id="cardExpYear" formControlName="cardExpYear">
+            </div>
+            <div>
+                <label for="cardCvc">CVC:</label>
+            </div>
+            <div>
+                <input type="text" id="cardCvc" formControlName="cardCvc">
+            </div>
+        </section>
+        <section>
+            <a href="https://t.me/BillTheBillerBot"><button type="button">Back</button></a>
+            <button type="submit" [disabled]="prodForm.invalid">Submit</button>
+        </section>
+    </form>
+</div>

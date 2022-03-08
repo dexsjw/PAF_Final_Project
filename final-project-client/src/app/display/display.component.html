@@ -1,22 +1,24 @@
-<h2>Your List of Existing Subscriptions</h2>
-<table>
-    <thead>
-        <tr>
-            <th>User ID</th>
-            <th>Subscription ID</th>
-            <th>Subscription Status</th>
-            <th>Invoice Status</th>
-            <th>Payment Intent Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let status of statuses">
-            <td>{{ status.teleUserId }}</td>
-            <td>{{ status.subId }}</td>
-            <td>{{ status.subStatus }}</td>
-            <td>{{ status.invoiceStatus }}</td>
-            <td>{{ status.payIntStatus }}</td>
-        </tr>
-    </tbody>
-</table>
-<a href="https://t.me/BillTheBillerBot"><button type="button">Back</button></a>
+<div class="container">
+    <h2>Your List of Existing Subscriptions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Subscription ID</th>
+                <th>Subscription Status</th>
+                <th>Invoice Status</th>
+                <th>Payment Intent Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let status of statuses">
+                <td>{{ status.teleUserId }}</td>
+                <td>{{ status.subId }}</td>
+                <td>{{ status.subStatus }}</td>
+                <td>{{ status.invoiceStatus }}</td>
+                <td>{{ status.payIntStatus }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="https://t.me/BillTheBillerBot"><button type="button">Back</button></a>
+</div>

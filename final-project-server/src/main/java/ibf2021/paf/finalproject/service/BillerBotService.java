@@ -182,7 +182,7 @@ public class BillerBotService extends TelegramLongPollingBot {
         sendInvoice.setTitle(title);
         sendInvoice.setDescription(description);
         sendInvoice.setPayload("4242");
-        sendInvoice.setProviderToken(ENV_TELEBOT_PROVIDER_TOKEN);
+        sendInvoice.setProviderToken("284685063:TEST:Y2NmYzQ3M2Q5OTIx");
         sendInvoice.setCurrency("sgd");
         sendInvoice.setPrices(prices);
         try {
@@ -194,6 +194,10 @@ public class BillerBotService extends TelegramLongPollingBot {
 
     public void insertTeleUser(TeleUser user) {
         teleRepo.insertTeleUser(user);
+    }
+
+    public boolean checkUser(int teleUserId) {
+        return teleRepo.checkUser(teleUserId);
     }
     
 }
