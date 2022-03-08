@@ -113,7 +113,7 @@ public class BillerBotService extends TelegramLongPollingBot {
             ikbList.add(
                 InlineKeyboardButton.builder()
                     .text("Click here to create a subscription")
-                    .url("http://youtube.com")                    // needs be changed
+                    .url("https://bill-the-biller-bot.herokuapp.com/#/")
                     .build()
             );
             InlineKeyboardMarkup ikbm = InlineKeyboardMarkup.builder()
@@ -133,7 +133,7 @@ public class BillerBotService extends TelegramLongPollingBot {
             ikbList.add(
                 InlineKeyboardButton.builder()
                     .text("Click here to visit your list of subscriptions")
-                    .url("http://youtube.com")                    // needs be changed
+                    .url("https://bill-the-biller-bot.herokuapp.com/#/display")
                     .build()
             );
             InlineKeyboardMarkup ikbm = InlineKeyboardMarkup.builder()
